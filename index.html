@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta name="description" content="">
+	    <meta name="author" content="Francesco Lubrano">
+
+	    <title>Nucleo Dashboard</title>
+	    <script type="text/javascript" src="jquery.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/bootbox.min.js"></script>
+		<script type="text/javascript" src="js/spin.min.js"></script>
+		<!-- aws sdk -->
+		<script src="https://sdk.amazonaws.com/js/aws-sdk-2.167.0.min.js"></script>
+		<script src="registration.js"></script>
+
+		<link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+		<link rel="stylesheet" href="css/cerulean/bootstrap.css" type="text/css"/>
+		<link rel="stylesheet" href="css/demo.css" type="text/css"/>
+		<link rel="stylesheet" href="css/font-awesome.css" type="text/css"/>
+	</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span class="navbar-brand">
+                	<a href="http://www.stmicroelectronics.com.cn/content/st_com/en.html">
+                    <img alt="ST" src="images/RS70_ST_Logo_Qi.png" class="header-logos st-logo"></a>
+                </span>
+                <span class="site-name">STM32ODE IoT web dashboard</span>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a class="active" href="./index.html">Home</a></li>
+                    <li><a href="./about.html">About</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+	</br>
+	</br>
+	</br>
+	</br>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="container" id="details">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="panel panel-default">
+									<div class="panel-heading" id="registered_board">
+										<h3>Login to the dashboard</h3>
+									</div>
+									<div class="panel-body">
+										<form name="thingLogin" action="javascript:login(b_id.value)">
+										    <span data-tooltip="Insert the MAC Address of the board e.g. FF:FF:FF:FF:FF:FF" data-tooltip-position="bottom">
+										    	Board id: <input type="text" id="b_id" name="b_id" />
+										    	<input name="Send"  type="submit" value="Login" />
+										    </span>
+										</form>
+										
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="panel panel-default">
+									<div class="panel-heading" id="new_board">
+										<h3>Register a new board</h3>
+									</div>
+									<div class="panel-body">
+										<form name="thingRegister" action="javascript:handleClick(Tname.value)">
+										    <span data-tooltip="Insert the MAC Address of the board e.g. FF:FF:FF:FF:FF:FF" data-tooltip-position="bottom">
+										    	Board id: <input type="text" id="Tname" name="Tname" />
+										    	<input name="Send"  type="submit" value="Register" />
+										    </span>
+										</form>
+										<div class="container" id="container">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="panel panel-default">
+									<p style="margin-top:1em;" align="center"><img src="images/intro2.png" alt="architecture" height="90%" width="80%"></p>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h3><img class="warning-img" src="images/warning.png" alt="warning" height="30px" width="30px">Delete a registered board</h3>
+									</div>
+									<div class="panel-body">
+										<form name="deleteThing" action="javascript:deleteThing(Bname.value)">
+											<span data-tooltip="Insert the MAC Address of the board e.g. FF:FF:FF:FF:FF:FF" data-tooltip-position="top">
+												Board id: <input type="text" id="Bname" name="Bname">
+												<input type="submit" name="Send" value="Delete">
+											</span>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
